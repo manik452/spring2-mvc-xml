@@ -2,6 +2,7 @@ package com.mkyong.common.controller.database;
 
 import com.mkyong.common.controller.model.LoginModel;
 import com.mkyong.common.controller.model.LoginResponseModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -61,12 +62,13 @@ public class JdbcCustomerDAO {
             LoginModel customer = null;
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                customer = new LoginModel();
-               /* customer = new LoginResponseModel(
-                        rs.getInt("CUST_ID"),
-                        rs.getString("NAME"),
-                        rs.getInt("Age")
-                );*/
+                customer = new LoginModel(
+                        rs.getString("merchant_key"),
+                        "",
+                        rs.getString("sslRef_id"),
+                        rs.getDouble("product_price"),
+                        rs.getString("merchant_name")
+                        );
             }
             rs.close();
             ps.close();

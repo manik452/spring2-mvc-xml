@@ -1,11 +1,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/c"
-	   xmlns:tx="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<!--<tx:annotation-driven/>-->
+	<bean id="dataSource"
+		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/primebank" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+	<bean id="customerDAO" class="com.mkyong.common.controller.database.JdbcCustomerDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+<!--	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:component-scan base-package="com.mkyong.common.controller" />-->
+<!--	<tx:annotation-driven/>-->
 	<!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -17,9 +31,27 @@
 		</property>
 	</bean>
 
-	<bean name="/" class="com.mkyong.common.controller.HelloWorldController" />
+	<bean name="/" class="com.mkyong.common.controller.HelloWorldController" >
+        <constructor-arg>
+            <bean class="com.mkyong.common.controller.SSLService">
+                <constructor-arg ref="customerDAO"/>
+            </bean>
+        </constructor-arg>
+	</bean>
 	<bean name="/ssl-login" class="com.mkyong.common.controller.sslrequestcontroler.SSLRequestController" />
-	<bean name="/post-ssl-login" class="com.mkyong.common.controller.sslrequestcontroler.SSLRequestControllerPost" />
+    <bean name="/post-ssl-login" class="com.mkyong.common.controller.sslrequestcontroler.SSLRequestControllerPost">
+        <constructor-arg>
+            <bean class="com.mkyong.common.controller.SSLService">
+                <constructor-arg ref="customerDAO"/>
+            </bean>
+        </constructor-arg>
+    </bean>
 	<bean name="/success" class="com.mkyong.common.controller.sslrequestcontroler.IBankingLoginControllerPost" />
+	<!--<bean name="sslService" class="com.mkyong.common.controller.SSLService" >
+        <constructor-arg>
+            <bean class="com.mkyong.common.controller.database.JdbcCustomerDAO"/>
+        </constructor-arg>
+	</bean>-->
+
 
 </beans>

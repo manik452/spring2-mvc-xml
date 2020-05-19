@@ -18,7 +18,7 @@ public class SSLReqSimpleFormControllerPost extends SimpleFormController {
     @Autowired
     HttpSession httpSession;
 
-
+private SSLService sslService;
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView;
         String merchantKey = httpServletRequest.getParameter("merchantKey");
@@ -29,8 +29,8 @@ public class SSLReqSimpleFormControllerPost extends SimpleFormController {
         LoginModel loginModel = new LoginModel(merchantKey,merchantPassword,sslRefId,productPrice,merchantName);
         httpSession.setAttribute("loginModel", loginModel);
 
-        SSLService service = new SSLService();
-        LoginResponseModel loginResponseModel =  service.postSSLRequest(loginModel);
+
+        LoginResponseModel loginResponseModel =  sslService.postSSLRequest(loginModel);
         if(loginResponseModel.getPaymentStatus() == 100){
             modelAndView =  new ModelAndView("pbankloginpage");
             modelAndView.addObject("message", loginResponseModel.getStatusMessage());

@@ -18,7 +18,7 @@ public class IBankingLoginControllerPost extends AbstractController {
 
     @Autowired
     HttpSession httpSession;
-
+    private SSLService sslService;
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         LoginModel loginModel = (LoginModel) httpSession.getAttribute("loginModel");
@@ -29,8 +29,8 @@ public class IBankingLoginControllerPost extends AbstractController {
         String sslRefId  = String.valueOf(new Date());
         double productPrice  = Double.valueOf(httpServletRequest.getParameter("productPrice").trim());
         IBLoginModel ibLoginModel = new IBLoginModel(userName,password,sslRefId,productPrice);
-        SSLService service = new SSLService();
-        IBLoginResponseModel responseModel = service.postIBLogin(ibLoginModel);
+
+        IBLoginResponseModel responseModel = sslService.postIBLogin(ibLoginModel);
         responseModel.setResponseCode(100);
         responseModel.setMessage("Operation Successful");
         if(responseModel.getResponseCode() == 100){

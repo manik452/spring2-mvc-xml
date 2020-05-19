@@ -8,6 +8,8 @@ import com.mkyong.common.controller.model.LoginResponseModel;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
@@ -17,16 +19,21 @@ import java.util.List;
 
 public class SSLService {
 
-    @Autowired
     private JdbcCustomerDAO jdbcCustomerDAO;
-    public LoginResponseModel postSSLRequest(LoginModel loginModel){
+
+    public SSLService(JdbcCustomerDAO jdbcCustomerDAO) {
+        this.jdbcCustomerDAO = jdbcCustomerDAO;
+    }
+
+    public LoginResponseModel postSSLRequest(LoginModel loginModel) {
         LoginResponseModel loginResponseModel;
+
         LoginModel dbLoginModel = jdbcCustomerDAO.findByCustomerId(loginModel.getSslRefId(), loginModel.getMerchantKey());
-        if(dbLoginModel != null){
+        if (dbLoginModel == null) {
             jdbcCustomerDAO.insert(loginModel);
             loginResponseModel = this.postSSL(loginModel);
             createDB(loginResponseModel);
-        }else {
+        } else {
             loginResponseModel = new LoginResponseModel();
             loginResponseModel.setPaymentStatus(101);
             loginResponseModel.setStatusMessage("Reference Id Already Exist");
@@ -39,7 +46,7 @@ public class SSLService {
 
     }
 
-    public LoginResponseModel postSSL(LoginModel loginModel){
+    public LoginResponseModel postSSL(LoginModel loginModel) {
         LoginResponseModel loginResponseModel = new LoginResponseModel();
         loginResponseModel.setPaymentStatus(100);
         return loginResponseModel;
@@ -50,7 +57,8 @@ public class SSLService {
         LoginResponseModel response = r.readEntity(LoginResponseModel.class);
         return response;*/
     }
-    public IBLoginResponseModel postIBLogin(IBLoginModel loginModel){
+
+    public IBLoginResponseModel postIBLogin(IBLoginModel loginModel) {
         return new IBLoginResponseModel();
         /*
         WebClient client = WebClient.create("http://localhost:8080");

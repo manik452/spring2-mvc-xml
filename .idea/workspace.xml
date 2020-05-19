@@ -6,7 +6,39 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="539c137c-7e81-4673-a18b-ffb08c99f691" name="Default Changelist" comment="" />
+    <list default="true" id="539c137c-7e81-4673-a18b-ffb08c99f691" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring2_mvc_xml_hello_world_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring2_mvc_xml_hello_world_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_44.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring2-mvc-xml-hello-world.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring2-mvc-xml-hello-world.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/HelloWorldController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/HelloWorldController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/SSLService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/SSLService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/database/JdbcCustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/database/JdbcCustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/model/LoginResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/model/LoginResponseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ibLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/ibLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/HelloWorldController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/HelloWorldController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/SSLService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/SSLService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/model/LoginResponseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/model/LoginResponseModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/HelloWorldController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/HelloWorldController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/SSLService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/SSLService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/model/LoginResponseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/model/LoginResponseModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/classes/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/mvc-dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/mvc-dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/pages/ibLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/pages/ibLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/spring2-mvc-xml-hello-world-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +67,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -50,10 +85,12 @@
     </option>
   </component>
   <component name="ProjectId" id="1c4P15gHnD2YMNW3EMHxVNzpulw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -176,25 +213,85 @@
       <updated>1589784673087</updated>
       <workItem from="1589784677420" duration="12290000" />
       <workItem from="1589823608475" duration="776000" />
-      <workItem from="1589856148939" duration="25015000" />
+      <workItem from="1589856148939" duration="34759000" />
+      <workItem from="1589904464680" duration="1517000" />
+      <workItem from="1589908525782" duration="860000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.java</url>
-          <line>22</line>
+          <line>29</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.java</url>
           <line>25</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/SSLService.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLReqSimpleFormControllerPost.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/SSLService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/SSLRequestControllerPost.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/database/JdbcCustomerDAO.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/SSLService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/sslrequestcontroler/IBankingLoginControllerPost.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/database/JdbcCustomerDAO.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mkyong/common/controller/database/JdbcCustomerDAO.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

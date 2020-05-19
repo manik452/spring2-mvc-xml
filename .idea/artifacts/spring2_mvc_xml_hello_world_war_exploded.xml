@@ -23,7 +23,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:2.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:2.5" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.9" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.44" />
           <element id="library" level="project" name="Maven: org.springframework:spring:2.5.6" />
           <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-rs-client:3.0.4" />
           <element id="library" level="project" name="Maven: org.apache.cxf:cxf-rt-transports-http:3.0.4" />

@@ -9,6 +9,7 @@ public class LoginResponseModel {
     private String statusMessage;
     private double transactionAmount;
 
+
     public String getBankTransactionId() {
         return bankTransactionId;
     }

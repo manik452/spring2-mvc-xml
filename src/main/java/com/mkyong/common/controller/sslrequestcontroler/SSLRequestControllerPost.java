@@ -17,6 +17,13 @@ public class SSLRequestControllerPost extends AbstractController {
     @Autowired
     HttpSession httpSession;
 
+
+    private SSLService service;
+
+    public SSLRequestControllerPost(SSLService service) {
+        this.service = service;
+    }
+
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView;
@@ -26,9 +33,9 @@ public class SSLRequestControllerPost extends AbstractController {
         double productPrice  = Double.valueOf(httpServletRequest.getParameter("productPrice").trim());
         String merchantName = httpServletRequest.getParameter("merchantName");
         LoginModel loginModel = new LoginModel(merchantKey,merchantPassword,sslRefId,productPrice,merchantName);
-        httpSession.setAttribute("loginModel", loginModel);
+       // httpSession.setAttribute("loginModel", loginModel);
 
-        SSLService service = new SSLService();
+
         LoginResponseModel loginResponseModel =  service.postSSLRequest(loginModel);
         if(loginResponseModel.getPaymentStatus() == 100){
             modelAndView =  new ModelAndView("pbankloginpage");
