@@ -9,10 +9,16 @@
 	
 	<properties>
 		<jdk.version>1.6</jdk.version>
-		<spring.version>2.5</spring.version>
+		<spring.version>2.5.6</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<servletapi.version>2.5</servletapi.version>
 		<spring.security.version>2.0.4</spring.security.version>
+		<ehcache.version>2.6.0</ehcache.version>
+
+		<cxf.version>2.7.18</cxf.version>
+		<httpclient.version>4.3.6</httpclient.version>
+		<surefire.version>2.19.1</surefire.version>
+		<jackson.version>1.9.13</jackson.version>
 		
 	</properties>
 	
@@ -32,6 +38,12 @@
 			<version>${jstl.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 		<!-- for compile only, your container should have this -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -46,36 +58,31 @@
 			<version>5.1.44</version>
 		</dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring</artifactId>
-            <version>2.5.6</version>
-        </dependency>
-
-<!--		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>-->
-		<!--<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>-->
-
 
 		<!--Rest CLient-->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-rs-client</artifactId>
-			<version>3.0.4</version>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-jaxrs</artifactId>

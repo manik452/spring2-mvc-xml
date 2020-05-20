@@ -8,25 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class SSLRequestController extends AbstractController {
-
-
-   /* @GetMapping("/ssl-login")
-    public String greeting(Model model) {
-        LoginModel loginModel = new LoginModel();
-        model.addAttribute("loginModel", loginModel);
-        model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "sslLogin";
-    }
-
-    @PostMapping("/ssl-login")
-    public String postSSL(@ModelAttribute LoginModel loginModel, ModelMap model) {
-        //LoginResponseModel response = restTemplate.postUserModel(loginModel);
-        LoginResponseModel response = new LoginResponseModel();
-        response.setTransactionId("dfwioejdsvfs");
-        model.addAttribute("transactionId", response.getTransactionId());
-        return "ibLogin";
-    }*/
-
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView modelAndView = new ModelAndView("sslLogin");

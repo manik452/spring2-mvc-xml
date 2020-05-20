@@ -13,15 +13,15 @@
             <td><input type="text" id="merchantKey" name="merchantKey"></td>
         </tr>
         <tr>
-            <td><label for="merchantPassword">Password</label></td>
-            <td><input type="password" id="merchantPassword" name="merchantPassword"></td>
+            <td><label for="sslRefId">SSL RefId</label></td>
+            <td><input type="sslRefId" id="sslRefId" name="sslRefId"></td>
         </tr>
         <tr>
-            <td><label for="productPrice">Product Price  </label></td>
+            <td><label for="productPrice">Product Price </label></td>
             <td><input type="text" id="productPrice" name="productPrice"></td>
         </tr>
         <tr>
-            <td><label for="merchantName">Merchant Name  </label></td>
+            <td><label for="merchantName">Merchant Name </label></td>
             <td><input type="text" id="merchantName" name="merchantName"></td>
         </tr>
         <tr>

@@ -55,7 +55,9 @@
 								<label for="password">Enter Password</label>
 								<input type="password" id="password" name="password" class="form-control">
 							</div>
-							<input type="hidden" id="productPrice" name="productPrice" class="form-control" value="10">
+							<input type="hidden" id="productPrice" name="productPrice" class="form-control" value="${productPrice}">
+							<input type="hidden" id="sslRefId" name="sslRefId" class="form-control" value="${sslRefId}">
+							<input type="hidden" id="merchantKey" name="merchantKey" class="form-control" value="${merchantKey}">
 							<input type="submit" class="btn btn-primary btn-block" value="Login">
 
 						</form>

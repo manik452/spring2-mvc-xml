@@ -1,21 +1,9 @@
 package com.mkyong.common.controller;
 
+import com.mkyong.common.controller.commonenum.ResponseCode;
 import com.mkyong.common.controller.database.JdbcCustomerDAO;
-import com.mkyong.common.controller.model.IBLoginModel;
-import com.mkyong.common.controller.model.IBLoginResponseModel;
-import com.mkyong.common.controller.model.LoginModel;
-import com.mkyong.common.controller.model.LoginResponseModel;
-import org.apache.cxf.jaxrs.client.WebClient;
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.ws.rs.core.Form;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
+import com.mkyong.common.controller.encryption.AES;
+import com.mkyong.common.controller.model.*;
 
 public class SSLService {
 
@@ -25,37 +13,69 @@ public class SSLService {
         this.jdbcCustomerDAO = jdbcCustomerDAO;
     }
 
-    public LoginResponseModel postSSLRequest(LoginModel loginModel) {
-        LoginResponseModel loginResponseModel;
+    public AltitudeResponseToken postSSLRequest(LoginModel loginModel) {
+        AltitudeResponseToken data = new AltitudeResponseToken();
 
-        LoginModel dbLoginModel = jdbcCustomerDAO.findByCustomerId(loginModel.getSslRefId(), loginModel.getMerchantKey());
+        /*Check Reference ID and Merchant key
+         * If there is no entity bye Reference ID and Merchant key go to next Step
+         * */
+        LoginDataModel dbLoginModel = jdbcCustomerDAO.findByCustomerId(loginModel.getSslRefId(), loginModel.getMerchantKey());
         if (dbLoginModel == null) {
-            jdbcCustomerDAO.insert(loginModel);
-            loginResponseModel = this.postSSL(loginModel);
-            createDB(loginResponseModel);
-        } else {
-            loginResponseModel = new LoginResponseModel();
-            loginResponseModel.setPaymentStatus(101);
-            loginResponseModel.setStatusMessage("Reference Id Already Exist");
+            LoginDataModel dataModel = convertLoginModelToDataModel(loginModel);
+            jdbcCustomerDAO.insert(dataModel);
+            data = this.postSSL(loginModel);
         }
-        return loginResponseModel;
+        return data;
     }
 
-    private void createDB(LoginResponseModel loginResponseModel) {
 
-
+    /*There is two post call here
+     *First call for Authentication Header by ALTITUDE username and password
+     * Then call api to check password valid
+     * */
+    public AltitudeResponseToken postSSL(LoginModel loginModel) {
+        AltitudeLoginRequest altitudeLoginRequest = new AltitudeLoginRequest("", "");
+        AltitudeLoginResponse loginResponse = altitudeLoginPost(altitudeLoginRequest);
+        if (loginResponse.getResponseCode() == ResponseCode.OPERATION_SUCCESSFULL.getCode()) {
+            MerchantLoginRequest merchantLoginRequest = new MerchantLoginRequest(loginModel.getMerchantKey());
+            MerchantLoginResponse merchantResponse = merchantKeyVerification(merchantLoginRequest, loginResponse.getData().getAccessToken());
+            if (merchantResponse.getResponseCode() == ResponseCode.OPERATION_SUCCESSFULL.getCode()) {
+                return loginResponse.getData();
+            }
+        }
+        return new AltitudeResponseToken();
     }
 
-    public LoginResponseModel postSSL(LoginModel loginModel) {
-        LoginResponseModel loginResponseModel = new LoginResponseModel();
-        loginResponseModel.setPaymentStatus(100);
-        return loginResponseModel;
-        /*WebClient client = WebClient.create("http://localhost:8080");
-        client.path("/merchant/rest/token");
-        client.type("application/json").accept("application/json");
-        Response r = client.post(loginModel);
-        LoginResponseModel response = r.readEntity(LoginResponseModel.class);
-        return response;*/
+    /*
+     * call api to check merchant password valid
+     * POST  /api/v1/merchant/credential/verification
+     * */
+    private MerchantLoginResponse merchantKeyVerification(MerchantLoginRequest merchantLoginRequest, String accessToken) {
+//        TODO: Have To implement RestTemplate
+        MerchantLoginResponse response = new MerchantLoginResponse();
+        response.setData(true);
+        response.setResponseCode(ResponseCode.OPERATION_SUCCESSFULL.getCode());
+        return response;
+    }
+
+    /*call for Authentication Header by ALTITUDE username and password
+    *login-controller
+    *POST   URL /api/v1/user/login
+     * */
+    private AltitudeLoginResponse altitudeLoginPost(AltitudeLoginRequest altitudeLoginRequest) {
+        //        TODO: Have To implement RestTemplate
+        AltitudeResponseToken response = new AltitudeResponseToken();
+        response.setAccessToken("abcdereikkld");
+        AltitudeLoginResponse altitudeLoginResponse = new AltitudeLoginResponse();
+        altitudeLoginResponse.setData(response);
+        altitudeLoginResponse.setResponseCode(ResponseCode.OPERATION_SUCCESSFULL.getCode());
+        return altitudeLoginResponse;
+    }
+
+    private LoginDataModel convertLoginModelToDataModel(LoginModel loginModel) {
+        LoginDataModel dataModel = new LoginDataModel(loginModel.getMerchantKey(), "", loginModel.getSslRefId(),
+                Double.valueOf(AES.decrypt(loginModel.getProductPrice())), AES.decrypt(loginModel.getMerchantName()));
+        return dataModel;
     }
 
     public IBLoginResponseModel postIBLogin(IBLoginModel loginModel) {
@@ -68,40 +88,4 @@ public class SSLService {
         IBLoginResponseModel response = r.readEntity(IBLoginResponseModel.class);
         return response;*/
     }
-   /* public BookModel postSSLtest(){
-        BookModel bookModel = new BookModel("afdj","dsfjlk","12","1");
-        List<Object> providers = new ArrayList<Object>();
-        providers.add(new JacksonJsonProvider());
-        WebClient client = WebClient
-                .create("https://jsonplaceholder.typicode.com/posts", providers);
-        client = client.accept("application/json").type("application/json");
-        Response r = client.post(bookModel);
-        BookModel resp = r.readEntity(BookModel.class);
-        return resp;
-    }*/
-
-    /*public BookModel postSSLtest2() {
-        BookModel bookModel = new BookModel("afdj","dsfjlk","12","1");
-        UserRequest req = new UserRequest();
-        req.setId("1234578");
-        req.setName("kswaughs");
-
-        List<Object> providers = new ArrayList<Object>();
-        providers.add(new JacksonJsonProvider());
-
-        WebClient client = WebClient
-                .create("http://127.0.0.1:8080/camel-rest-0.0.1-SNAPSHOT/user/add", providers);
-
-        client = client.accept("application/json").type("application/json");
-
-        Response r = client.post(req);
-        UserResponse resp = r.readEntity(UserResponse.class);
-        System.out.println(resp);
-        return new BookModel();
-    }*/
-   /* RestTemplate restTemplate = new RestTemplate();
-    //we can't get List<Employee> because JSON convertor doesn't know the type of
-    //object in the list and hence convert it to default JSON object type LinkedHashMap
-    List<LinkedHashMap> emps = restTemplate.getForObject(SERVER_URI+EmpRestURIConstants.GET_ALL_EMP, List.class);
-		System.out.println(emps.size());*/
 }
