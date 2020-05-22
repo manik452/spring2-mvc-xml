@@ -16,14 +16,6 @@ public class AES {
 
     private static final String key = "aesEncryptionKey";
     private static final String initVector = "encryptionIntVec";
-    /*public static void main(String[] args) {
-        String originalString = "password";
-        System.out.println("Original String to encrypt - " + originalString);
-        String encryptedString = encrypt(originalString);
-        System.out.println("Encrypted String - " + encryptedString);
-        String decryptedString = decrypt(encryptedString);
-        System.out.println("After decryption - " + decryptedString);
-    }*/
 
     public static String encrypt(String value)
     {
