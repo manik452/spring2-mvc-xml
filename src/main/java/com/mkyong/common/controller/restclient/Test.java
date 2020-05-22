@@ -1,28 +1,23 @@
 package com.mkyong.common.controller.restclient;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriBuilder;
 
-import org.apache.http.HttpResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mkyong.common.controller.model.LoginModel;
 import org.apache.http.client.ClientProtocolException;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.representation.Form;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
-public class Test {
+public class Test extends CommonService {
     public static void main(String[] args) throws ClientProtocolException, IOException {
 
-        LoginResponseModel str = JasonRequestResponse.jsonObjectToObject();
-       System.out.println(str);
+/*        JasonRequestResponse<LoginResponseModel> jasonRequestResponse = new JasonRequestResponse<LoginResponseModel>(new LoginResponseModel());
+        LoginResponseModel str = jasonRequestResponse.get();
+//       jasonRequestResponse.getTest();
+        System.out.println(str);*/
+        LoginRequest loginModel = new LoginRequest("jamal","belal");
+        JasonRequestResponse<LoginResponseModel> jasonRequestResponse = new JasonRequestResponse<LoginResponseModel>(new LoginResponseModel());
+        LoginResponseModel str = jasonRequestResponse.post(convertObjectModelToJson(loginModel));
+        System.out.println(str);
+
        /* HttpClient client = new DefaultHttpClient();
         HttpGet request = new HttpGet("http://localhost:8081/users/2");
         HttpResponse response = client.execute(request);
@@ -40,5 +35,19 @@ public class Test {
         ClientResponse response = service.path("restPath").path("resourcePath").
                 type(MediaType.APPLICATION_FORM_URLENCODED).post(ClientResponse.class, form);
         System.out.println("Response " + response.getEntity(String.class));*/
+    }
+
+    private static String convertToJson(LoginRequest loginModel) {
+        ObjectMapper Obj = new ObjectMapper();
+        try {
+            // get Oraganisation object as a json string
+            String jsonStr = Obj.writeValueAsString(loginModel);
+            // Displaying JSON String
+            System.out.println(jsonStr);
+            return jsonStr;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

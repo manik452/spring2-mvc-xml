@@ -1,6 +1,6 @@
 package com.mkyong.common.controller.restclient;
 
-public class LoginResponseModel {
+public class LoginResponseModel extends BaseModel {
     private String transactionId;
 
     public LoginResponseModel() {
