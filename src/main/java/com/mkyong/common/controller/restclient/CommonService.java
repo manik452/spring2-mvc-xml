@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class CommonService {
 
-    protected static String convertObjectModelToJson(Object object) {
+    public static String convertObjectModelToJson(Object object) {
         ObjectMapper Obj = new ObjectMapper();
         try {
             // get Oraganisation object as a json string
